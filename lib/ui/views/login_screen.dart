@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:todo_app_case/data/services/auth_service.dart';
+import 'home_screen.dart';
 import 'signup_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -31,6 +32,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
       if (res == 'success') {
         Get.snackbar('Success', 'User logged in successfully');
+        Get.off(() => const HomeScreen());
       } else {
         Get.snackbar('Error', res);
       }
@@ -46,7 +48,6 @@ class _LoginScreenState extends State<LoginScreen> {
           child: Form(
             key: _formKey,
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
                   "Login",
@@ -98,7 +99,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: 30,
                 ),
                 SizedBox(
-                  width: 250,
+                  width: 200,
                   height: 45,
                   child: ElevatedButton(
                     onPressed: loginUser,
@@ -109,7 +110,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: const Text(
                       "Login",
                       style: TextStyle(
-                        fontSize: 18,
+                        fontSize: 15,
                         fontWeight: FontWeight.w700,
                         color: Colors.black,
                       ),
@@ -117,14 +118,14 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 const SizedBox(
-                  height: 15,
+                  height: 5,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Text(
                       "Don't have an account? ",
-                      style: TextStyle(fontSize: 16, color: Colors.grey),
+                      style: TextStyle(fontSize: 15, color: Colors.grey),
                     ),
                     InkWell(
                       onTap: () {
@@ -133,14 +134,14 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: Text(
                         "Sign up",
                         style: TextStyle(
-                          fontSize: 16,
+                          fontSize: 15,
                           color:
                               Theme.of(context).primaryColor.withOpacity(0.4),
                         ),
                       ),
                     ),
                   ],
-                )
+                ),
               ],
             ),
           ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:todo_app_case/data/services/auth_service.dart';
+import 'package:get/get.dart';
 import 'login_screen.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -12,13 +12,14 @@ class SignUpScreen extends StatefulWidget {
 
 class _SignUpScreenState extends State<SignUpScreen> {
   final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _nameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
 
   @override
   void dispose() {
     _emailController.dispose();
+    _nameController.dispose();
     _passwordController.dispose();
     super.dispose();
   }
@@ -28,7 +29,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
       String res = await AuthService().signUpUser(
         email: _emailController.text,
         password: _passwordController.text,
-        username: _usernameController.text,
+        username: _nameController.text,
       );
 
       if (res == 'success') {
@@ -45,14 +46,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
     return Scaffold(
       body: Center(
         child: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
+          padding: const EdgeInsets.symmetric(
+            horizontal: 20,
+          ),
           child: Form(
             key: _formKey,
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "Register",
+                  "Sign Up",
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.w700,
@@ -81,16 +83,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   },
                 ),
                 TextFormField(
-                  controller: _usernameController,
+                  controller: _nameController,
                   decoration: const InputDecoration(
-                    labelText: 'Username',
+                    labelText: 'Full name',
                     icon: Icon(
                       Icons.person,
                     ),
                   ),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return 'Please enter a username';
+                      return 'Please enter a full name';
                     }
                     return null;
                   },
@@ -127,7 +129,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     child: const Text(
                       "Sign up",
                       style: TextStyle(
-                        fontSize: 18,
+                        fontSize: 15,
                         fontWeight: FontWeight.w700,
                         color: Colors.black,
                       ),
@@ -135,14 +137,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                 ),
                 const SizedBox(
-                  height: 15,
+                  height: 5,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Text(
                       "Already have an account? ",
-                      style: TextStyle(fontSize: 16, color: Colors.grey),
+                      style: TextStyle(fontSize: 15, color: Colors.grey),
                     ),
                     InkWell(
                       onTap: () {
@@ -151,14 +153,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       child: Text(
                         "Login",
                         style: TextStyle(
-                          fontSize: 16,
+                          fontSize: 15,
                           color:
                               Theme.of(context).primaryColor.withOpacity(0.4),
                         ),
                       ),
                     ),
                   ],
-                )
+                ),
               ],
             ),
           ),
