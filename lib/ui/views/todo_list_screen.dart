@@ -4,7 +4,9 @@ import 'package:todo_app_case/ui/views/add_todo_screen.dart';
 import '../../controllers/todo_controller.dart';
 
 class TodoListScreen extends StatelessWidget {
+  final bool isCompleted;
 
+  const TodoListScreen({super.key, required this.isCompleted});
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +24,7 @@ class TodoListScreen extends StatelessWidget {
                 border: OutlineInputBorder(),
               ),
               onChanged: (query) {
+                todoController.searchTodos(query);
               },
             ),
           ),
@@ -48,6 +51,7 @@ class TodoListScreen extends StatelessWidget {
                         Checkbox(
                           value: todo.isCompleted,
                           onChanged: (bool? value) {
+                            todoController.toggleTodoCompletion(todo);
                           },
                         ),
                         IconButton(

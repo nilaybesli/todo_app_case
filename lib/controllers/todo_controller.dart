@@ -44,4 +44,18 @@ class TodoController extends GetxController {
     return todoList.where((todo) => todo.isCompleted == isCompleted).toList();
   }
 
+  void toggleTodoCompletion(Todo todo) async {
+    todo.isCompleted = !todo.isCompleted;
+    await TodoService().updateTodo(todo);
+    fetchTodos();
+  }
+
+  void searchTodos(String query) {
+    var result = todoList
+        .where((todo) =>
+            todo.title.toLowerCase().contains(query.toLowerCase()) ||
+            todo.description.toLowerCase().contains(query.toLowerCase()))
+        .toList();
+    todoList.assignAll(result);
+  }
 }
