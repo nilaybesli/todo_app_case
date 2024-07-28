@@ -19,17 +19,27 @@ class _AddTodoScreenState extends State<AddTodoScreen> {
 
   final TodoController todoController = Get.find();
 
-  void addTodo() {
+  void addOrUpdate() {
     if (_formKey.currentState!.validate()) {
-      todoController.addTodo(
-        Todo(
-            id: DateTime.now().toString(),
-            title: _titleController.text,
-            description: _descriptionController.text,
-            createdAt: DateTime.now()),
-      );
+      if (widget.todo != null) {
+        todoController.updateTodo(Todo(
+          id: widget.todo!.id,
+          title: _titleController.text,
+          description: _descriptionController.text,
+          createdAt: widget.todo!.createdAt,
+          isCompleted: widget.todo!.isCompleted,
+        ));
+      } else {
+        todoController.addTodo(
+          Todo(
+              id: DateTime.now().toString(),
+              title: _titleController.text,
+              description: _descriptionController.text,
+              createdAt: DateTime.now()),
+        );
+      }
+      Get.back();
     }
-    Get.back();
   }
 
   @override
@@ -67,7 +77,7 @@ class _AddTodoScreenState extends State<AddTodoScreen> {
               const SizedBox(
                 height: 20,
               ),
-              ElevatedButton(onPressed: addTodo, child: const Text("Add"))
+              ElevatedButton(onPressed: addOrUpdate, child: const Text("Add"))
             ],
           ),
         ),
