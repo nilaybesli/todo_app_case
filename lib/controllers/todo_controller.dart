@@ -39,4 +39,9 @@ class TodoController extends GetxController {
     await TodoService().deleteTodo(id);
     fetchTodos();
   }
+
+  List<Todo> getFilteredTodos(bool isCompleted) {
+    return todoList.where((todo) => todo.isCompleted == isCompleted).toList();
+  }
+
 }
