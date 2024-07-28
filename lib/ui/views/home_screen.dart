@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:todo_app_case/ui/views/add_todo_screen.dart';
+import 'package:todo_app_case/ui/views/todo_list_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -14,7 +17,9 @@ class HomeScreen extends StatelessWidget {
           actions: [
             IconButton(
               icon: const Icon(Icons.add),
-              onPressed: () {},
+              onPressed: () {
+                Get.to(() => const AddTodoScreen());
+              },
             ),
           ],
           bottom: const TabBar(
@@ -23,6 +28,12 @@ class HomeScreen extends StatelessWidget {
               Tab(text: 'Uncompleted'),
             ],
           ),
+        ),
+        body: const TabBarView(
+          children: [
+            TodoListScreen(isCompleted: true),
+            TodoListScreen(isCompleted: false),
+          ],
         ),
       ),
     );
