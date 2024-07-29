@@ -3,10 +3,10 @@ import 'package:get/get.dart';
 import '../molecules/form_input_field.dart';
 import '../atoms/submit_button.dart';
 import '../../data/services/auth_service.dart';
- import '../views/login_screen.dart';
+import '../views/login_screen.dart';
 
 class SignUpForm extends StatefulWidget {
-  const SignUpForm({Key? key}) : super(key: key);
+  const SignUpForm({super.key});
 
   @override
   _SignUpFormState createState() => _SignUpFormState();
@@ -48,7 +48,7 @@ class _SignUpFormState extends State<SignUpForm> {
     return Form(
       key: _formKey,
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           FormInputField(
             controller: _emailController,
@@ -88,7 +88,7 @@ class _SignUpFormState extends State<SignUpForm> {
             },
           ),
           const SizedBox(height: 20),
-          SubmitButton(onPressed: signUpUser, text: 'Sign Up'),
+          CustomButton(onPressed: signUpUser, text: 'Sign Up'),
         ],
       ),
     );

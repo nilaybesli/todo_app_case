@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:todo_app_case/ui/views/add_todo_screen.dart';
-import 'package:todo_app_case/ui/views/todo_list_screen.dart';
+import 'package:todo_app_case/ui/molecules/todo_list.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -31,8 +31,8 @@ class HomeScreen extends StatelessWidget {
         ),
         body: const TabBarView(
           children: [
-            TodoListScreen(isCompleted: true),
-            TodoListScreen(isCompleted: false),
+            TodoList(isCompleted: true),
+            TodoList(isCompleted: false),
           ],
         ),
       ),

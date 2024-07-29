@@ -6,7 +6,7 @@ import '../../data/services/auth_service.dart';
  import '../views/home_screen.dart';
 
 class LoginForm extends StatefulWidget {
-  const LoginForm({Key? key}) : super(key: key);
+  const LoginForm({super.key});
 
   @override
   _LoginFormState createState() => _LoginFormState();
@@ -45,7 +45,7 @@ class _LoginFormState extends State<LoginForm> {
     return Form(
       key: _formKey,
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           FormInputField(
             controller: _emailController,
@@ -75,7 +75,7 @@ class _LoginFormState extends State<LoginForm> {
             },
           ),
           const SizedBox(height: 20),
-          SubmitButton(onPressed: loginUser, text: 'Login'),
+          CustomButton(onPressed: loginUser, text: 'Login',),
         ],
       ),
     );

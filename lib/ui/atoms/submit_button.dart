@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class SubmitButton extends StatelessWidget {
+class CustomButton extends StatelessWidget {
   final VoidCallback onPressed;
   final String text;
 
-  const SubmitButton({Key? key, required this.onPressed, required this.text}) : super(key: key);
+  const CustomButton({super.key, required this.onPressed, required this.text});
 
   @override
   Widget build(BuildContext context) {
