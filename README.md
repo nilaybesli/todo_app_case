@@ -7,13 +7,19 @@ This project is a Todo application built using Flutter (Dart) with Firebase as t
 
 Features
 
-User Authentication: Users can register and log in.
-Todo Management: Create, update, and delete Todo items.
-View Todos categorized as "Completed" or "Uncompleted".
-Todos are displayed sorted by creation date.
-Search Todos by content.
-Completed Todos are hidden from the "Uncompleted" list.
-State Management: Utilizes GetX for state management.
+-User Authentication: Users can register and log in.
+
+-Todo Management: Create, update, and delete Todo items.
+
+-View Todos categorized as "Completed" or "Uncompleted".
+
+-Todos are displayed sorted by creation date.
+
+-Search Todos by content.
+
+-Completed Todos are hidden from the "Uncompleted" list.
+
+-State Management: Utilizes GetX for state management.
 
 
 ## Screenshots
@@ -36,9 +42,13 @@ State Management: Utilizes GetX for state management.
 
 
 Technologies Used
-Flutter: Framework for building the cross-platform mobile application.
-Dart: Programming language used with Flutter.
-Firebase:
-Firestore: Cloud Firestore for database management.
-Firebase Auth: For user authentication.
-GetX: State management and dependency injection.
+
+-Flutter: Framework for building the cross-platform mobile application.
+
+-Firebase:
+
+-Firestore: Cloud Firestore for database management.
+
+-Firebase Auth: For user authentication.
+
+-GetX: State management and dependency injection.
