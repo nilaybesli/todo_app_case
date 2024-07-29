@@ -9,9 +9,9 @@ class TodoList extends StatelessWidget {
   final bool isCompleted;
 
   const TodoList({
-    Key? key,
+    super.key,
     required this.isCompleted,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

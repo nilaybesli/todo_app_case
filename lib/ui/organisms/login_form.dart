@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../molecules/form_input_field.dart';
-import '../atoms/submit_button.dart';
+import '../atoms/custom_button.dart';
 import '../../data/services/auth_service.dart';
- import '../views/home_screen.dart';
+import '../views/home_screen.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({super.key});
@@ -75,7 +75,10 @@ class _LoginFormState extends State<LoginForm> {
             },
           ),
           const SizedBox(height: 20),
-          CustomButton(onPressed: loginUser, text: 'Login',),
+          CustomButton(
+            onPressed: loginUser,
+            text: 'Login',
+          ),
         ],
       ),
     );

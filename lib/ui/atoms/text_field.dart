@@ -7,12 +7,12 @@ class TextInputField extends StatelessWidget {
   final String? Function(String?) validator;
 
   const TextInputField({
-    Key? key,
+    super.key,
     required this.controller,
     required this.label,
     this.isPassword = false,
     required this.validator,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class TextInputField extends StatelessWidget {
       obscureText: isPassword,
       decoration: InputDecoration(
         labelText: label,
-        border: OutlineInputBorder(),
+        border: const OutlineInputBorder(),
       ),
       validator: validator,
     );

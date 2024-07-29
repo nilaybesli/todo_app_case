@@ -8,12 +8,12 @@ class TodoListTile extends StatelessWidget {
   final VoidCallback onDelete;
 
   const TodoListTile({
-    Key? key,
+    super.key,
     required this.todo,
     required this.onTap,
     this.onCheckboxChanged,
     required this.onDelete,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

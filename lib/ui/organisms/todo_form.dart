@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app_case/ui/atoms/text_field.dart';
-import '../atoms/submit_button.dart';
 
 class TodoForm extends StatelessWidget {
   final TextEditingController titleController;
@@ -9,12 +7,12 @@ class TodoForm extends StatelessWidget {
   final VoidCallback onSave;
 
   const TodoForm({
-    Key? key,
+    super.key,
     required this.titleController,
     required this.descriptionController,
     required this.formKey,
     required this.onSave,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -22,9 +20,9 @@ class TodoForm extends StatelessWidget {
       key: formKey,
       child: Column(
         children: [
-          TextInputField(
+          TextFormField(
             controller: titleController,
-            label: 'Title',
+            decoration: const InputDecoration(labelText: 'Title'),
             validator: (value) {
               if (value == null || value.isEmpty) {
                 return 'Please enter a title';
@@ -32,12 +30,9 @@ class TodoForm extends StatelessWidget {
               return null;
             },
           ),
-          const SizedBox(
-            height: 20,
-          ),
-          TextInputField(
+          TextFormField(
             controller: descriptionController,
-            label: 'Description',
+            decoration: const InputDecoration(labelText: 'Description'),
             validator: (value) {
               if (value == null || value.isEmpty) {
                 return 'Please enter a description';
@@ -45,8 +40,10 @@ class TodoForm extends StatelessWidget {
               return null;
             },
           ),
-          const SizedBox(height: 20),
-          CustomButton(onPressed: onSave, text: 'Add'),
+          const SizedBox(
+            height: 20,
+          ),
+          ElevatedButton(onPressed: onSave, child: const Text("Save"))
         ],
       ),
     );

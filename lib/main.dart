@@ -1,9 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:todo_app_case/ui/views/home_screen.dart';
 import 'package:todo_app_case/ui/views/login_screen.dart';
-import 'package:todo_app_case/ui/views/signup_screen.dart';
 
 import 'controllers/todo_controller.dart';
 

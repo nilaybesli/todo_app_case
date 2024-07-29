@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../molecules/form_input_field.dart';
-import '../atoms/submit_button.dart';
+import '../atoms/custom_button.dart';
 import '../../data/services/auth_service.dart';
 import '../views/login_screen.dart';
 

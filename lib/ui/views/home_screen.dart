@@ -1,10 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:todo_app_case/ui/views/add_todo_screen.dart';
-import 'package:todo_app_case/ui/molecules/todo_list.dart';
+import 'package:todo_app_case/ui/views/todo_list_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'login_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
+
+  Future<void> signOut() async {
+    try {
+      await FirebaseAuth.instance.signOut();
+      Get.offAll(() => const LoginScreen());
+    } catch (e) {
+      Get.snackbar('Error', 'Failed to sign out: ${e.toString()}');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +32,10 @@ class HomeScreen extends StatelessWidget {
                 Get.to(() => const AddTodoScreen());
               },
             ),
+            IconButton(
+              icon: const Icon(Icons.logout),
+              onPressed: signOut,
+            ),
           ],
           bottom: const TabBar(
             tabs: [
@@ -31,8 +46,8 @@ class HomeScreen extends StatelessWidget {
         ),
         body: const TabBarView(
           children: [
-            TodoList(isCompleted: true),
-            TodoList(isCompleted: false),
+            TodoListScreen(isCompleted: true),
+            TodoListScreen(isCompleted: false),
           ],
         ),
       ),
